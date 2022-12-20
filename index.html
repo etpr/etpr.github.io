@@ -1,0 +1,566 @@
+<html>
+
+<head>
+	<title>Peter Englert</title>
+	<link rel=stylesheet type="text/css" href="style.css">
+	<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,width=device-width" />
+</head>
+
+
+
+<div class="navbar"> <div class="header" > Peter Englert </div> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#contact">Contact</a>
+<a href="#publications">Publications</a>
+<a href="#research">Research</a>
+<p class="a">  &nbsp; </p>
+<hr>
+</div>
+
+<body>
+<div class="main">
+	<div style="display:inline-block;width:90%;float:left;padding-left:30px;">
+  <div>
+			<div></div>
+			<!-- <div><b></b></div><br> -->
+			<div>Welcome! I'm a staff robotics scientist at <a href="https://www.rtr.ai"><i>Realtime Robotics</i></a>.
+				Previously, I was a postdoc at the <a href="https://www.usc.edu"><i>University of Southern California</i></a>
+			in the <a href="http://robotics.usc.edu/resl/"><i>Robotic Embedded Systems Laboratory</i></a> led by <a href="http://robotics.usc.edu/~gaurav/"><i>Prof. Gaurav
+			Sukhatme</i></a>. My research interests include motion planning and control as
+			well as data-driven approaches like imitation and reinforcement learning.
+			The goal of my research is to design intelligent motions for physical
+			systems in complex environments.
+			<!-- <br> -->
+			<!-- <br> -->
+			From 2013 to 2018, I did my Ph.D. in the <a href="https://ipvs.informatik.uni-stuttgart.de/mlr/"><i>Machine Learning and Robotics Lab</i></a>
+			 at the <a href="https://www.uni-stuttgart.de/en/index.html"><i>University of Stuttgart</i></a> under the supervision of <a href="https://www.user.tu-berlin.de/mtoussai/index.html"><i>Prof. Marc
+			Toussaint</i></a>. During my Ph.D., I worked on advancing manipulation skill
+			learning towards better sample efficiency and wider generalization
+			capabilities.
+				 </div> <br>
+				<div><a href="https://github.com/etpr">Github</a> |
+					<a href="https://www.researchgate.net/profile/Peter_Englert3">ResearchGate</a> |
+				<a href="https://scholar.google.de/citations?user=SyACgDAAAAAJ&hl=en&oi=ao">Google Scholar</a> |
+				<a href="pgp.asc"> PGP Key </a></div><br><br>
+	</div>
+	</div>
+
+
+
+<h2>
+	<p>Research</p>
+	<p id="research"> </p>
+</h2>
+
+<h3>
+	<p>Sampling-based motion planning on manifold sequences</p>
+</h3>
+<div style="display:inline-block; vertical-align: top; text-align: center">
+		<img title="" src="graphics/robot_task3.png" alt="" width=33% />
+		<img title="" src="graphics/hourglass.png" alt="" width=17% />
+		<img title="" src="graphics/panda_pour.png" alt="" width=35% />
+</div>
+<br><br>
+We address the problem of planning robot motions in constrained configuration spaces where the constraints change throughout the motion.
+The problem is formulated as a sequence of intersecting manifolds, which the robot needs to traverse in order to solve the task.
+We specify a class of sequential motion planning problems that fulfill a particular property of the change in the free configuration space when transitioning between manifolds.
+For this problem class, the algorithm Sequential Manifold Planning (SMP*) is developed that searches for optimal intersection points between manifolds by using RRT* in an inner loop with a novel steering strategy. We provide a theoretical analysis regarding SMP*s probabilistic completeness and asymptotic optimality. Further, we evaluate its planning performance on various multi-robot object transportation tasks.
+
+
+<p><a name="englert2021rss"></a>
+
+<b>Sampling-Based Motion Planning on Sequenced Manifolds</b><br>
+ Peter Englert, Isabel M.&nbsp;Rayas Fern&aacute;ndez, Ragesh&nbsp;Kumar
+  Ramachandran, and Gaurav&nbsp;S. Sukhatme<br>
+ In <em>Proceedings of Robotics: Science and Systems</em>, 2021<br>
+[&nbsp;<a href="bib/englert2021rss.bib">bib</a>&nbsp;| 
+<a href="https://github.com/etpr/sequential-manifold-planning">code</a>&nbsp;| 
+<a href="http://www.roboticsproceedings.org/rss17/p039.pdf">pdf</a>&nbsp;| 
+<a href="https://www.youtube.com/watch?v=Q8kbILTRxfU">video</a>&nbsp;]
+
+</p>
+
+<hr>
+
+<h3>
+	<p>Curricular Policy Search for Quadruped Jumping</p>
+</h3>
+<div style="display:inline-block; vertical-align: top; text-align: center">
+		<img title="" src="graphics/halfcheetah.png" alt="" width=90% />
+		<img title="" src="graphics/laikago.png" alt="" width=90% />
+</div>
+<br><br>
+In this work, we explore if curriculum learning can improve the performance of trajectory-based policy search on legged locomotion tasks. We propose a curricular policy search method that integrates the black-box optimization algorithm CMA-ES (Covariance Matrix Adaptation Evolution Strategy) into a curriculum learning framework that incrementally increases the task difficulty. We assume a deterministic episodic scenario and directly parameterize the action trajectory with target points of a radial basis function network. We show preliminary results on two simulated jumping tasks where the robot has to jump over tall objects. The curriculum starts with a flat terrain and slowly increases the height of the object in each iteration. The results indicate that this multi-stage learning scheme can find jumping motions that could not be found via traditional optimization techniques.
+
+<p><a name="englert2021salhotra"></a>
+
+<b>Curricular Policy Search for Quadruped Jumping</b> <br>Gautam Salhotra, Peter Englert, and Gaurav S. Sukhatme </br>
+<em>In ICRA Workshop on recent advances in MPC and RL for legged robots</em>, 2021<br>
+[<a href="paper/2021_Salhotra_Curricular_Policy_Search.pdf">pdf</a>]
+
+</p>
+
+<hr>
+
+<h3>
+	<p>Motion planner augmented action spaces for reinforcement learning</p>
+</h3>
+<div style="display:inline-block; vertical-align: top; text-align: center">
+		<img title="" src="graphics/mopa_framework.png" alt="" width=19% />
+		<img title="" src="graphics/mopa_teaser.png" alt="" width=76% />
+</div>
+<br><br>
+Deep reinforcement learning (RL) agents are able to learn contact-rich
+manipulation tasks by maximizing a reward signal, but require large amounts of
+experience, especially in environments with many obstacles that complicate
+exploration. In contrast, motion planners use explicit models of the agent and
+environment to plan collision-free paths to faraway goals, but suffer from
+inaccurate models in tasks that require contacts with the environment. To
+combine the benefits of both approaches, we propose motion planner augmented RL
+(MoPA-RL) which augments the action space of an RL agent with the long-horizon
+planning capabilities of motion planners. Based on the magnitude of the action,
+our approach smoothly transitions between directly executing the action and
+invoking a motion planner. We demonstrate that MoPA-RL increases learning
+efficiency, leads to a faster exploration of the environment, and results in
+safer policies that avoid collisions with the environment.
+
+<p><a name="yamada2020corl"></a>
+
+<b>Motion Planner Augmented Reinforcement Learning for Obstructed
+  Environments</b><br>
+ Jun Yamada, Youngwoon Lee, Gautam Salhotra, Karl Pertsch, Max
+  Pflueger, Gaurav&nbsp;S. Sukhatme, Joseph&nbsp;J. Lim, and Peter Englert<br>
+ In <em>Conference on Robot Learning</em>, 2020<br>
+[&nbsp;<a href="bib/yamada2020corl.bib">bib</a>&nbsp;|
+<a href="https://clvrai.github.io/mopa-rl/">website</a>&nbsp;|
+<a href="https://github.com/clvrai/mopa-rl">code</a>&nbsp;|
+<a href="https://arxiv.org/pdf/2010.11940.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<hr>
+
+<h3>
+	<p>Learning manifolds for sequential motion planning</p>
+</h3>
+<div style="display:inline-block; vertical-align: top; text-align: center">
+		<img title="" src="graphics/ecomann_robot.png" alt="" width=26% />
+		<img title="" src="graphics/ecomann_tangent_space.png" alt="" width=33% />
+		<img title="" src="graphics/ecomann_contour.png" alt="" width=31% />
+</div>
+<br><br>
+Constrained robot motion planning is a widely used technique to solve complex robot tasks. We consider the problem of learning representations of constraints from demonstrations with a deep neural network, which we call Equality Constraint Manifold Neural Network (ECoMaNN). The key idea is to learn a level-set function of the constraint suitable for integration into a constrained sampling-based motion planner. Learning proceeds by aligning subspaces in the network with subspaces of the data. We combine both learned constraints and analytically described constraints into the planner and use a projection-based strategy to find valid points. We evaluate ECoMaNN on its representation capabilities of constraint manifolds, the impact of its individual loss terms, and the motions produced when incorporated into a planner.
+
+<p><a name="sutanto2020corl"></a>
+
+<b>Learning Equality Constraints for Motion Planning on Manifolds</b><br>
+ Giovanni Sutanto, Isabel M.&nbsp;Rayas Fern&aacute;ndez, Peter Englert,
+  Ragesh&nbsp;K. Ramachandran, and Gaurav&nbsp;S. Sukhatme<br>
+ In <em>Conference on Robot Learning</em>, 2020<br>
+[&nbsp;<a href="bib/sutanto2020corl.bib">bib</a>&nbsp;|
+<a href="https://github.com/gsutanto/smp_manifold_learning">code</a>&nbsp;|
+<a href="https://arxiv.org/pdf/2009.11852.pdf">pdf</a>&nbsp;|
+<a href="https://www.youtube.com/watch?v=WoC7nqp4XNk">video</a>&nbsp;]
+
+</p>
+
+<hr>
+
+<h3>
+	<p>Combining optimization and reinforcement learning</p>
+</h3>
+<div style="display:inline-block; vertical-align: top;">
+		<img title="" src="graphics/lockbox_motion.png" alt="" width=62% />
+		<img title="" src="graphics/projection.png" alt="" width=36.2% />
+</div>
+<br><br>
+As an alternative to the standard reinforcement learning formulation where all
+objectives are defined in a single reward function, we propose to decompose the
+problem into analytically known objectives, such as motion smoothness, and
+black-box objectives, such as trial success or reward depending on the
+interaction with the environment. The skill learning problem is separated into
+an optimal control part that improves the skill with respect to the known parts of a
+problem and a reinforcement learning part that learns the unknown parts by
+interacting with the environment.
+
+<p>
+
+<b>Learning Manipulation Skills from a Single Demonstration</b> <br>Peter Englert
+	and Marc Toussaint <br><em>International Journal of Robotics Research</em>
+	37(1):137-154, 2018<br>
+[&nbsp;<a href="bib/englert2018ijrr.bib">bib</a>&nbsp;|
+<a href="paper/2018_Englert_IJRR.pdf">pdf</a>&nbsp;|
+<a href="https://www.youtube.com/watch?v=sG01B_GcTJQ">video</a>&nbsp;]
+
+</p>
+
+<hr>
+
+<h3>
+	<p>Extracting compact task representations from depth data</p>
+</h3>
+<div style="display:inline-block; vertical-align: top;">
+		<img title="" src="graphics/kmn_loop.png" alt="" width=41% />
+		<img title="" src="graphics/kmn_pred.jpg" alt="" width=58% />
+</div>
+<br><br>
+Kinematic morphing networks find the relation of different geometric
+environments and use this relation to transfer skills between the environments.
+We assume that the environment can be modeled as a kinematic structure and
+represented with a low-dimensional parametrization. A key element of this work
+is the usage of the concatenation property of affine transformations and the
+ability to convert point clouds to depth images, which allows to apply the
+network in an iterative manner.
+
+<p><a name="englert2018iros"></a>
+
+<b>Kinematic Morphing Networks for Manipulation Skill Transfer</b><br>
+ Peter Englert and Marc Toussaint<br>
+ In <em>Proceedings of the IEEE International Conference on
+	Intelligent Robotics Systems</em>, 2018<br>
+[&nbsp;<a href="bib/englert2018iros.bib">bib</a>&nbsp;|
+<a href="paper/2018_Englert_IROS.pdf">pdf</a>&nbsp;|
+<a href="https://www.youtube.com/watch?v=hI1BC0G0oD4">video</a>&nbsp;]
+
+</p>
+
+<hr>
+
+
+
+
+
+<h3>
+	<p>Learning generalizable skills from demonstrations</p>
+</h3>
+<div style="display:inline-block; vertical-align: top;">
+		<img title="" src="graphics/ikkt.png" alt="" width=39% />
+		<img title="" src="graphics/box.jpg" alt="" width=60% />
+</div>
+<br><br>
+The algorithm extracts the essential features of a demonstrated task into a cost function that is generalizable to various
+environment instances. For this purpose, it assumes that the demonstrations
+are optimal with respect to an underlying constrained optimization problem. The
+aim of this approach is to push learning from demonstration to more complex
+manipulation scenarios that include the interaction with objects and therefore
+the realization of contacts/constraints within the motion.
+
+<p><a name="englert2017ijrr"></a>
+
+<b>Inverse KKT - Learning Cost Functions of Manipulation Tasks from
+	Demonstrations</b> <br>Peter Englert, Ngo&nbsp;Anh Vien, and Marc Toussaint <br><em>
+	International Journal of Robotics Research</em> 36(13-14):1474-1488, 2017<br>
+[&nbsp;<a href="bib/englert2017ijrr.bib">bib</a>&nbsp;|
+<a href="paper/2017_Englert_IJRR.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<hr>
+
+
+<h3>
+	<p>Learning with probabilistic models</p>
+</h3>
+<div style="display:inline-block;text-align:center;">
+	<img title="" src="graphics/traj_dist.png" alt="" width=24.75% />
+	<img title="" src="graphics/biorob.jpg" alt="" width=48% />
+	<img title="" src="graphics/query_paths.png" alt="" width=24.1% />
+</div>
+<br><br>
+Probabilistic models like Gaussian processes are the right choice if an
+uncertainty estimate of a model is important for the task. In [1], we proposed a
+probabilistic imitation learning formulation that learns a robot dynamics model
+from data. This model is used to perform a probabilistic trajectory matching to
+imitate the distribution of expert demonstrations. In [2], the robot only uses
+its tactile sensors to explore the shape of an unknown object by sliding on it.
+Gaussian processes are used to represent the implicit surface of the unknown
+object shape. The uncertainty of the model is used to guide the exploration into
+regions with the highest uncertainty.
+
+<div style="display:inline-block;text-align:center;">
+</div>
+
+
+
+<p><a name="englert2013ab"></a>
+
+<b>Probabilistic Model-based Imitation Learning</b> <br>Peter Englert, Alexandros
+	Paraschos, Marc&nbsp;Peter Deisenroth, and Jan Peters <br><em>Adaptive Behavior
+	Journal</em> 21(5):388-403, 2013<br>
+[&nbsp;<a href="bib/englert2013ab.bib">bib</a>&nbsp;|
+<a href="paper/2013_Englert_AB.pdf">pdf</a>&nbsp;]
+
+</p>
+
+
+<p><a name="driess2017iros"></a>
+
+<b>Active Learning with Query Paths for Tactile Object Shape Exploration</b><br>
+ Danny Driess, Peter Englert, and Marc Toussaint<br>
+ In <em>Proceedings of the IEEE International Conference on
+	Intelligent Robotics Systems</em>, 2017<br>
+[&nbsp;<a href="bib/driess2017iros.bib">bib</a>&nbsp;|
+<a href="paper/2017_Driess_IROS.pdf">pdf</a>&nbsp;|
+<a href="https://www.youtube.com/watch?v=4k5unx7En28">video</a>&nbsp;]
+
+</p>
+
+
+
+<p id="publications"> </p><br><br>
+<h2>
+	<p>Publications</p>
+</h2>
+
+
+
+<p><a name="englert2021rss"></a>
+
+<b>Sampling-Based Motion Planning on Sequenced Manifolds</b><br>
+ Peter Englert, Isabel M.&nbsp;Rayas Fern&aacute;ndez, Ragesh&nbsp;Kumar
+  Ramachandran, and Gaurav&nbsp;S. Sukhatme<br>
+ In <em>Proceedings of Robotics: Science and Systems</em>, 2021<br>
+[&nbsp;<a href="bib/englert2021rss.bib">bib</a>&nbsp;| 
+<a href="https://github.com/etpr/sequential-manifold-planning">code</a>&nbsp;| 
+<a href="http://www.roboticsproceedings.org/rss17/p039.pdf">pdf</a>&nbsp;| 
+<a href="https://www.youtube.com/watch?v=Q8kbILTRxfU">video</a>&nbsp;]
+
+</p>
+
+<p><a name="yamada2020corl"></a>
+
+<b>Motion Planner Augmented Reinforcement Learning for Obstructed
+  Environments</b><br>
+ Jun Yamada, Youngwoon Lee, Gautam Salhotra, Karl Pertsch, Max
+  Pflueger, Gaurav&nbsp;S. Sukhatme, Joseph&nbsp;J. Lim, and Peter Englert<br>
+ In <em>Conference on Robot Learning</em>, 2020<br>
+[&nbsp;<a href="bib/yamada2020corl.bib">bib</a>&nbsp;| 
+<a href="https://clvrai.github.io/mopa-rl/">website</a>&nbsp;| 
+<a href="https://github.com/clvrai/mopa-rl">code</a>&nbsp;| 
+<a href="https://arxiv.org/pdf/2010.11940.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="sutanto2020corl"></a>
+
+<b>Learning Equality Constraints for Motion Planning on Manifolds</b><br>
+ Giovanni Sutanto, Isabel M.&nbsp;Rayas Fern&aacute;ndez, Peter Englert,
+  Ragesh&nbsp;K. Ramachandran, and Gaurav&nbsp;S. Sukhatme<br>
+ In <em>Conference on Robot Learning</em>, 2020<br>
+[&nbsp;<a href="bib/sutanto2020corl.bib">bib</a>&nbsp;| 
+<a href="https://github.com/gsutanto/smp_manifold_learning">code</a>&nbsp;| 
+<a href="https://arxiv.org/pdf/2009.11852.pdf">pdf</a>&nbsp;| 
+<a href="https://www.youtube.com/watch?v=WoC7nqp4XNk">video</a>&nbsp;]
+
+</p>
+
+<p><a name="rayas2020ws"></a>
+
+<b>Learning Manifolds for Sequential Motion Planning</b> <br>Isabel M.&nbsp;Rayas
+  Fern&aacute;ndez, Giovanni Sutanto, Peter Englert, Ragesh&nbsp;K. Ramachandran, and
+  Gaurav&nbsp;S. Sukhatme <br><em>RSS Workshop on Learning (in) Task and Motion
+  Planning</em>, 2020<br>
+[&nbsp;<a href="bib/rayas2020ws.bib">bib</a>&nbsp;| 
+<a href="https://ipvs.informatik.uni-stuttgart.de/mlr/rss2020Workshop/papers/rayasFernandez.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="englert2018iros"></a>
+
+<b>Kinematic Morphing Networks for Manipulation Skill Transfer</b><br>
+ Peter Englert and Marc Toussaint<br>
+ In <em>Proceedings of the IEEE International Conference on
+  Intelligent Robotics Systems</em>, 2018<br>
+[&nbsp;<a href="bib/englert2018iros.bib">bib</a>&nbsp;| 
+<a href="papers/2018_Englert_IROS.pdf">pdf</a>&nbsp;| 
+<a href="https://www.youtube.com/watch?v=hI1BC0G0oD4">video</a>&nbsp;]
+
+</p>
+
+<p><a name="englert2018ijrr"></a>
+
+<b>Learning Manipulation Skills from a Single Demonstration</b> <br>Peter Englert
+  and Marc Toussaint <br><em>International Journal of Robotics Research</em>
+  37(1):137--154, 2018<br>
+[&nbsp;<a href="bib/englert2018ijrr.bib">bib</a>&nbsp;| 
+<a href="papers/2018_Englert_IJRR.pdf">pdf</a>&nbsp;| 
+<a href="https://www.youtube.com/watch?v=sG01B_GcTJQ">video</a>&nbsp;]
+
+</p>
+
+<p><a name="englert2017ijrr"></a>
+
+<b>Inverse KKT --- Learning Cost Functions of Manipulation Tasks from
+  Demonstrations</b> <br>Peter Englert, Ngo&nbsp;Anh Vien, and Marc Toussaint <br><em>
+  International Journal of Robotics Research</em> 36(13-14):1474--1488, 2017<br>
+[&nbsp;<a href="bib/englert2017ijrr.bib">bib</a>&nbsp;| 
+<a href="papers/2017_Englert_IJRR.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="driess2017iros"></a>
+
+<b>Active Learning with Query Paths for Tactile Object Shape Exploration</b><br>
+ Danny Driess, Peter Englert, and Marc Toussaint<br>
+ In <em>Proceedings of the IEEE International Conference on
+  Intelligent Robotics Systems</em>, 2017<br>
+[&nbsp;<a href="bib/driess2017iros.bib">bib</a>&nbsp;| 
+<a href="papers/2017_Driess_IROS.pdf">pdf</a>&nbsp;| 
+<a href="https://www.youtube.com/watch?v=4k5unx7En28">video</a>&nbsp;]
+
+</p>
+
+<p><a name="driess2017icra"></a>
+
+<b>Constrained Bayesian Optimization of Combined Interaction Force/Task Space
+  Controllers for Manipulations</b><br>
+ Danny Driess, Peter Englert, and Marc Toussaint<br>
+ In <em>Proceedings of the IEEE International Conference on Robotics
+  and Automation</em>, 2017<br>
+[&nbsp;<a href="bib/driess2017icra.bib">bib</a>&nbsp;| 
+<a href="papers/2017_Driess_ICRA.pdf">pdf</a>&nbsp;| 
+<a href="https://www.youtube.com/watch?v=CudjsbB7sfM">video</a>&nbsp;]
+
+</p>
+
+<p><a name="baisero2017arxiv"></a>
+
+<b>Identification of Unmodeled Objects from Symbolic Descriptions</b> <br>Andrea
+  Baisero, Stefan Otte, Peter Englert, and Marc Toussaint <br><em>
+  arXiv:1701.06450</em>, 2017<br>
+[&nbsp;<a href="bib/baisero2017arxiv.bib">bib</a>&nbsp;| 
+<a href="https://arxiv.org/pdf/1701.06450.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="ngo2016ijcai"></a>
+
+<b>Policy Search in Reproducing Kernel Hilbert Space</b><br>
+ Vien Ngo&nbsp;Anh, Peter Englert, and Marc Toussaint<br>
+ In <em>Proceedings of the International Joint Conference on
+  Artificial Intelligence</em>, 2016<br>
+[&nbsp;<a href="bib/ngo2016ijcai.bib">bib</a>&nbsp;| 
+<a href="paper/2016_Ngo_IJCAI.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="englert2016rss"></a>
+
+<b>Combined Optimization and Reinforcement Learning for Manipulations
+  Skills</b><br>
+ Peter Englert and Marc Toussaint<br>
+ In <em>Proceedings of Robotics: Science and Systems</em>, 2016<br>
+[&nbsp;<a href="bib/englert2016rss.bib">bib</a>&nbsp;| 
+<a href="paper/2016_Englert_RSS.pdf">pdf</a>&nbsp;| 
+<a href="https://www.youtube.com/watch?v=bn_sv5A1BhQ">video</a>&nbsp;]
+
+</p>
+
+<p><a name="schreiter2015icra"></a>
+
+<b>Sparse Gaussian Process Regression for Compliant, Real-Time Robot
+  Control</b><br>
+ Jens Schreiter, Peter Englert, Duy Nguyen-Tuong, and Marc Toussaint<br>
+ In <em>Proceedings of the IEEE International Conference on Robotics
+  and Automation</em>, 2015<br>
+[&nbsp;<a href="bib/schreiter2015icra.bib">bib</a>&nbsp;| 
+<a href="paper/2015_Schreiter_ICRA.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="englert2015isrr"></a>
+
+<b>Inverse KKT -- Learning Cost Functions of Manipulation Tasks from
+  Demonstrations</b><br>
+ Peter Englert and Marc Toussaint<br>
+ In <em>Proceedings of the International Symposium of Robotics
+  Research</em>, 2015<br>
+[&nbsp;<a href="bib/englert2015isrr.bib">bib</a>&nbsp;| 
+<a href="paper/2015_Englert_ISRR.pdf">pdf</a>&nbsp;| 
+<a href="https://www.youtube.com/watch?v=pO6XNiyJqNw">video</a>&nbsp;]
+
+</p>
+
+<p><a name="toussaint2014iros"></a>
+
+<b>Dual Execution of Optimized Contact Interaction Trajectories</b><br>
+ Marc Toussaint, Nathan Ratliff, Jeannette Bohg, Ludovic Righetti,
+  Peter Englert, and Stefan Schaal<br>
+ In <em>Proceedings of the IEEE International Conference on
+  Intelligent Robotics Systems</em>, 2014<br>
+[&nbsp;<a href="bib/toussaint2014iros.bib">bib</a>&nbsp;| 
+<a href="paper/2014_Toussaint_IROS.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="englert2014nips"></a>
+
+<b>Inverse KKT Motion Optimization: A Newton Method to Efficiently Extract
+  Task Spaces and Cost Parameters from Demonstrations</b> <br>Peter Englert and
+  Marc Toussaint <br><em>NIPS Workshop on Autonomously Learning Robots</em>, 2014<br>
+[&nbsp;<a href="bib/englert2014nips.bib">bib</a>&nbsp;| 
+<a href="paper/2014_Englert_NIPS.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="englert2014iros"></a>
+
+<b>Reactive Phase and Task Space Adaptation for Robust Motion Execution</b><br>
+ Peter Englert and Marc Toussaint<br>
+ In <em>Proceedings of the IEEE International Conference on
+  Intelligent Robotics Systems</em>, 2014<br>
+[&nbsp;<a href="bib/englert2014iros.bib">bib</a>&nbsp;| 
+<a href="paper/2014_Englert_IROS.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="deisenroth2014multitask"></a>
+
+<b>Multi-Task Policy Search for Robotics</b><br>
+ Marc&nbsp;Peter Deisenroth, Peter Englert, Jan Peters, and Dieter Fox<br>
+ In <em>Proceedings of the IEEE International Conference on Robotics
+  and Automation</em>, 2014<br>
+[&nbsp;<a href="bib/deisenroth2014multitask.bib">bib</a>&nbsp;| 
+<a href="paper/2014_Deisenroth_ICRA.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="englert2013icra"></a>
+
+<b>Model-based Imitation Learning by Probabilistic Trajectory Matching</b><br>
+ Peter Englert, Alexandros Paraschos, Jan Peters, and Marc&nbsp;Peter
+  Deisenroth<br>
+ In <em>Proceedings of the IEEE International Conference on Robotics
+  and Automation</em>, 2013<br>
+[&nbsp;<a href="bib/englert2013icra.bib">bib</a>&nbsp;| 
+<a href="paper/2013_Englert_ICRA.pdf">pdf</a>&nbsp;]
+
+</p>
+
+<p><a name="englert2013ab"></a>
+
+<b>Probabilistic Model-based Imitation Learning</b> <br>Peter Englert, Alexandros
+  Paraschos, Marc&nbsp;Peter Deisenroth, and Jan Peters <br><em>Adaptive Behavior
+  Journal</em> 21(5):388--403, 2013<br>
+[&nbsp;<a href="bib/englert2013ab.bib">bib</a>&nbsp;| 
+<a href="paper/2013_Englert_AB.pdf">pdf</a>&nbsp;]
+
+</p>
+
+
+
+<p id="contact"> </p><br><br>
+
+
+<h2>
+	<p>Contact</p>
+</h2>
+<div style="display:inline-block;vertical-align: top;padding-left: 00px">
+	<b>email:</b> <br>
+	englertpr AT gmail.com<br>
+</div>
+
+
+</div>
+
+	</body>
+</html>

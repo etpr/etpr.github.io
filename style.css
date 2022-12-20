@@ -1,0 +1,84 @@
+
+hr {
+height: 1;
+color: black;
+background-color: black;
+margin-bottom: 0em;
+border-bottom: 0em;
+}
+.navbar {
+  overflow: hidden;
+  background-color: rgb(190,190,190);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-width:1000px;
+  margin-top: 0em;
+}
+.navbar a {
+  float: right;
+  display: block;
+  text-align: center;
+  /*padding: 15px 30px;*/
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 17px;
+  padding-bottom: 0px;
+  text-decoration: none;
+  font-size: 20px;
+}
+.navbar a:link, .navbar a:visited {
+  color: rgb(60, 60, 60);
+  font-style: normal;
+  text-decoration: none;
+}
+
+body {
+background: rgb(190,190,190);
+color: black;
+font-family: Arial;
+text-align: left;
+}
+
+.main {
+max-width:1000px;
+min-width:500px;
+margin: auto;
+margin-top: 100px;
+font-size:20;
+}
+
+.header {
+	font-family: "Times New Roman", Times, serif;
+	display:inline;
+	font-size:30;
+}
+
+.main a:link, .main a:visited {
+  color: rgb(140, 50, 50);
+  font-style: normal;
+  text-decoration: none;
+}
+
+p.a {
+    font-family: "Times New Roman", Times, serif;
+		display:inline;
+		font-size:40;
+		font-weight:normal;
+}
+
+p.b {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    display: block;
+    font-size: 26;
+    margin-top: 1.3em;
+    margin-bottom: 1.3em;
+    text-align: center;
+    font-weight: lighter;
+    color: black;
+    color: rgb(50, 50, 150);
+
+}
